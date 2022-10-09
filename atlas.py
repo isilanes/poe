@@ -3,6 +3,7 @@ import json
 import argparse
 from typing import Optional, Union
 
+
 COLORS = {
     "links": (
         "38;5;242",  # gray
@@ -10,6 +11,8 @@ COLORS = {
         "38;5;76",   # 2, green
         "38;5;166",  # 3, orange
         "38;5;178",  # 4, gold
+        "38;5;129",  # 5
+        "38;5;142",  # 6
     ),
 }
 
