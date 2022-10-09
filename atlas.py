@@ -1,86 +1,9 @@
-HAVE_MAPS = (
-    # Name, Tier
-    ("Frozen Cabins", 1),
-    ("Overgrown Ruin", 1),
-    ("Strand", 1),
-    ("Terrace", 1),
+import sys
+import json
+import argparse
+from typing import Optional
 
-    ("Bramble Valley", 2),
-    ("Colosseum", 2),
-    ("Crimson Temple", 2),
-    ("Dark Forest", 2),
-    ("Excavation", 2),
-    ("Moon Temple", 2),
 
-    ("Caldera", 3),
-    ("Cells", 3),
-    ("Defiled Cathedral", 3),
-    ("Factory", 3),
-    ("Museum", 3),
-    ("Park", 3),
-
-    ("Atoll", 4),
-    ("Dungeon", 4),
-    ("Laboratory", 4),
-    ("Phantasmagoria", 4),
-    ("Primordial Pool", 4),
-    ("Shore", 4),
-    ("Vaal Pyramid", 4),
-    ("Maelström of Chaos", 4),
-
-    ("Acid Caverns", 5),
-    ("Crimson Township", 5),
-    ("Temple", 5),
-    ("Wharf", 5),
-
-    ("Arachnid Tomb", 6),
-    ("Jungle Valley", 6),
-
-    ("Arachnid Nest", 7),
-    ("Fungal Hollow", 7),
-    ("Mausoleum", 7),
-)
-DONT_HAVE_MAPS = (
-    ("Whakawairua Tuahu", 1),
-
-    ("Carcass", 2),
-    ("Thicket", 2),
-    ("The Twilight Temple", 2),
-
-    ("Bone Crypt", 3),
-    ("Waterways", 3),
-    ("Olmec's Sanctum", 3),
-    ("The Putrid Cloister", 3),
-
-    ("Chateau", 4),
-    ("Vaults of Atziri", 4),
-    ("Mao Kun", 4),
-
-    ("Coral Ruins", 5),
-    ("Crater", 5),
-    ("Mud Geyser", 5),
-    ("Shrine", 5),
-    ("Poorjoy's Asylum", 5),
-
-    ("Dry Sea", 6),
-    ("Lava Chamber", 6),
-    ("Overgrown Shrine", 6),
-    ("Plateau", 6),
-    ("Spider Forest", 6),
-
-    ("Colonnade", 7),
-    ("Lair", 7),
-    ("Necropolis", 7),
-    ("Summit", 7),
-
-    ("Ancient City", 8),
-    ("Barrows", 8),
-    ("Bog", 8),
-    ("Canyon", 8),
-    ("Ghetto", 8),
-    ("Maze", 8),
-    ("Wasteland", 8),
-)
 ADJACENT = (
     ("Frozen Cabins", "Dark Forest"),
     ("Frozen Cabins", "Moon Temple"),
@@ -159,13 +82,13 @@ ADJACENT = (
     ("Primordial Pool", "Acid Caverns"),
     ("Primordial Pool", "Crater"),
 )
-COLORS = [
+COLORS = (
     "38;5;242",  # 0, gray
     "38;5;111",  # 1, blue
     "38;5;76",   # 2, green
     "38;5;166",  # 3, orange
     "38;5;178",  # 4, gold
-]
+)
 
 
 class Map:
@@ -184,14 +107,43 @@ class Map:
         return sum([not m.have for m in self.adjacent])
 
 
+def parse_args(args: Optional[list] = None) -> argparse.Namespace:
+    """Read and parse arguments."""
+
+    if args is None:
+        args = sys.argv[1:]
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--input",
+        type=str,
+        help="Path to file with input data. Default: None.",
+        required=True,
+        default=None,
+    )
+
+    return parser.parse_args(args)
+
+
+def read_input(fn: str) -> dict:
+    with open(fn) as f:
+        return json.load(f)
+
+
 def main():
+    opts = parse_args()
+    maps = read_input(opts.input)
+
     maps_by_name = {}
     maps_by_tier = {i: [] for i in range(1, 17)}
-    for map_list, have in ((HAVE_MAPS, True), (DONT_HAVE_MAPS, False)):
-        for data in map_list:
-            atlas_map = Map(*data, have)
-            maps_by_name[atlas_map.name] = atlas_map
-            maps_by_tier[atlas_map.tier].append(atlas_map)
+    for which, have in (("have_maps", True), ("dont_have_maps", False)):
+        tiers = maps.get(which)
+        for tier, map_list in tiers.items():
+            for map_name in map_list:
+                atlas_map = Map(map_name, int(tier), have)
+                maps_by_name[atlas_map.name] = atlas_map
+                maps_by_tier[atlas_map.tier].append(atlas_map)
 
     for adjacent in ADJACENT:
         map_a, map_b = [maps_by_name[x] for x in adjacent]
