@@ -14,6 +14,7 @@ COLORS = {
         "38;5;129",  # 5
         "38;5;142",  # 6
     ),
+    "highlight": "48;5;11",  # yellow background
 }
 
 
@@ -53,6 +54,12 @@ def parse_args(args: Optional[list] = None) -> argparse.Namespace:
         help="Path to file with Atlas data. Default: required.",
         required=True,
     )
+    parser.add_argument(
+        "--select",
+        type=str,
+        help="Highlight selected map. Default: do not.",
+        default=None,
+    )
 
     return parser.parse_args(args)
 
@@ -88,6 +95,8 @@ def main():
         for atlas_map in maps_by_tier.get(tier):
             u = atlas_map.undiscovered
             link_color = COLORS.get("links")[u]
+            if opts.select and opts.select.lower() in atlas_map.name.lower():
+                link_color += ";" + COLORS.get("highlight")
 
             name = atlas_map.name
             if not atlas_map.have:
