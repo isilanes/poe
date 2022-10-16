@@ -1,86 +1,314 @@
-[
-    ["Frozen Cabins", "Dark Forest"],
-    ["Frozen Cabins", "Moon Temple"],
-    ["Frozen Cabins", "Colosseum"],
-    ["Dark Forest", "Factory"],
-    ["Dark Forest", "Defiled Cathedral"],
-    ["Factory", "Vaal Pyramid"],
-    ["Factory", "Laboratory"],
-    ["Vaal Pyramid", "Vaults of Atziri"],
-    ["Vaal Pyramid", "Shrine"],
-    ["Defiled Cathedral", "Moon Temple"],
-    ["Defiled Cathedral", "Atoll"],
-    ["Defiled Cathedral", "Laboratory"],
-    ["Laboratory", "Shrine"],
-    ["Laboratory", "Crimson Township"],
-    ["Moon Temple", "The Twilight Temple"],
-    ["Moon Temple", "Cells"],
-    ["Colosseum", "Terrace"],
-    ["Crimson Township", "Plateau"],
-    ["Crimson Township", "Spider Forest"],
-    ["Crimson Township", "Atoll"],
-    ["Atoll", "Mud Geyser"],
-    ["Atoll", "Maelström of Chaos"],
-    ["Atoll", "Cells"],
-    ["Terrace", "Crimson Temple"],
-    ["Crimson Temple", "Cells"],
-    ["Crimson Temple", "Park"],
-    ["Cells", "Chateau"],
-    ["Park", "Chateau"],
-    ["Park", "Phantasmagoria"],
-    ["Park", "Thicket"],
-    ["Phantasmagoria", "Coral Ruins"],
-    ["Phantasmagoria", "Wharf"],
-    ["Phantasmagoria", "Waterways"],
-    ["Thicket", "Waterways"],
-    ["Thicket", "Strand"],
-    ["Strand", "Whakawairua Tuahu"],
-    ["Strand", "Carcass"],
-    ["Carcass", "Waterways"],
-    ["Carcass", "Museum"],
-    ["Carcass", "Overgrown Ruin"],
-    ["Overgrown Ruin", "Excavation"],
-    ["Bramble Valley", "Caldera"],
-    ["Bramble Valley", "Bone Crypt"],
-    ["Bone Crypt", "Primordial Pool"],
-    ["Bone Crypt", "Dungeon"],
-    ["Bone Crypt", "Olmec's Sanctum"],
-    ["Dungeon", "Crater"],
-    ["Dungeon", "Temple"],
-    ["Temple", "Poorjoy's Asylum"],
-    ["Temple", "Lava Chamber"],
-    ["Mausoleum", "Lava Chamber"],
-    ["Mausoleum", "Jungle Valley"],
-    ["Mausoleum", "Maze"],
-    ["Mausoleum", "Ancient City"],
-    ["Jungle Valley", "Acid Caverns"],
-    ["Jungle Valley", "Fungal Hollow"],
-    ["Jungle Valley", "Crater"],
-    ["Fungal Hollow", "Maze"],
-    ["Fungal Hollow", "Wasteland"],
-    ["Fungal Hollow", "Arachnid Tomb"],
-    ["Arachnid Tomb", "Arachnid Nest"],
-    ["Arachnid Tomb", "Wharf"],
-    ["Arachnid Nest", "Wasteland"],
-    ["Arachnid Nest", "Barrows"],
-    ["Arachnid Nest", "Overgrown Shrine"],
-    ["Wharf", "Shore"],
-    ["Shore", "Acid Caverns"],
-    ["Shore", "Mao Kun"],
-    ["Shore", "Caldera"],
-    ["Shore", "Museum"],
-    ["Shore", "Waterways"],
-    ["Museum", "The Putrid Cloister"],
-    ["Museum", "Excavation"],
-    ["Excavation", "Caldera"],
-    ["Caldera", "Primordial Pool"],
-    ["Primordial Pool", "Acid Caverns"],
-    ["Primordial Pool", "Crater"],
-    ["Ancient City", "Necropolis"],
-    ["Ancient City", "Villa"],
-    ["Ancient City", "Desert"],
-    ["Residence", "Canyon"],
-    ["Residence", "Bog"],
-    ["Residence", "Underground River"],
-    ["Residence", "Stagnation"]
-]
+{
+    "Frozen Cabins": {
+        "tier": 1,
+        "adjacent": [
+            "Dark Forest",
+            "Moon Temple",
+            "Colosseum"
+        ]
+    },
+    "Overgrown Ruin": {
+        "tier": 1,
+        "adjacent": []
+    },
+    "Strand": {
+        "tier": 1,
+        "adjacent": []
+    },
+    "Terrace": {
+        "tier": 1,
+        "adjacent": []
+    },
+    "Whakawairua Tuahu": {
+        "tier": 1,
+        "adjacent": []
+    },
+    "Bramble Valley": {
+        "tier": 2,
+        "adjacent": []
+    },
+    "Carcass": {
+        "tier": 2,
+        "adjacent": []
+    },
+    "Colosseum": {
+        "tier": 2,
+        "adjacent": []
+    },
+    "Crimson Temple": {
+        "tier": 2,
+        "adjacent": []
+    },
+    "Dark Forest": {
+        "tier": 2,
+        "adjacent": ["Frozen Cabins", "Factory", "Defiled Cathedral"]
+    },
+    "Excavation": {
+        "tier": 2,
+        "adjacent": []
+    },
+    "Moon Temple": {
+        "tier": 2,
+        "adjacent": []
+    },
+    "Thicket": {
+        "tier": 2,
+        "adjacent": []
+    },
+    "The Twilight Temple": {
+        "tier": 2,
+        "adjacent": ["Moon Temple"]
+    },
+    "Bone Crypt": {
+        "tier": 3,
+        "adjacent": []
+    },
+    "Caldera": {
+        "tier": 3,
+        "adjacent": []
+    },
+    "Cells": {
+        "tier": 3,
+        "adjacent": []
+    },
+    "Defiled Cathedral": {
+        "tier": 3,
+        "adjacent": []
+    },
+    "Olmec's Sanctum": {
+        "tier": 3,
+        "adjacent": ["Bone Crypt"]
+    },
+    "Factory": {
+        "tier": 1,
+        "adjacent": ["Dark Forest", "Vaal Pyramid", "Laboratory"]
+    },
+    "Museum": {
+        "tier": 3,
+        "adjacent": []
+    },
+    "Park": {
+        "tier": 3,
+        "adjacent": []
+    },
+    "Waterways": {
+        "tier": 3,
+        "adjacent": []
+    },
+    "The Putrid Cloister": {
+        "tier": 3,
+        "adjacent": ["Museum"]
+    },
+    "Atoll": {
+        "tier": 4,
+        "adjacent": []
+    },
+    "Chateau": {
+        "tier": 4,
+        "adjacent": []
+    },
+    "Dungeon": {
+        "tier": 4,
+        "adjacent": []
+    },
+    "Laboratory": {
+        "tier": 4,
+        "adjacent": []
+    },
+    "Phantasmagoria": {
+        "tier": 4,
+        "adjacent": []
+    },
+    "Primordial Pool": {
+        "tier": 4,
+        "adjacent": []
+    },
+    "Shore": {
+        "tier": 4,
+        "adjacent": []
+    },
+    "Vaal Pyramid": {
+        "tier": 4,
+        "adjacent": []
+    },
+    "Maelström of Chaos": {
+        "tier": 4,
+        "adjacent": ["Atoll"]
+    },
+    "Vaults of Atziri": {
+        "tier": 4,
+        "adjacent": ["Vaal Pyramid"]
+    },
+    "Mao Kun": {
+        "tier": 4,
+        "adjacent": ["Shore"]
+    },
+    "Acid Caverns": {
+        "tier": 5,
+        "adjacent": []
+    },
+    "Coral Ruins": {
+        "tier": 5,
+        "adjacent": []
+    },
+    "Crater": {
+        "tier": 5,
+        "adjacent": []
+    },
+    "Crimson Township": {
+        "tier": 5,
+        "adjacent": []
+    },
+    "Mud Geyser": {
+        "tier": 5,
+        "adjacent": []
+    },
+    "Shrine": {
+        "tier": 5,
+        "adjacent": []
+    },
+    "Temple": {
+        "tier": 5,
+        "adjacent": []
+    },
+    "Wharf": {
+        "tier": 5,
+        "adjacent": []
+    },
+    "Poorjoy's Asylum": {
+        "tier": 5,
+        "adjacent": ["Temple"]
+    },
+    "Arachnid Tomb": {
+        "tier": 6,
+        "adjacent": []
+    },
+    "Dry Sea": {
+        "tier": 6,
+        "adjacent": []
+    },
+    "Jungle Valley": {
+        "tier": 6,
+        "adjacent": []
+    },
+    "Lava Chamber": {
+        "tier": 6,
+        "adjacent": []
+    },
+    "Overgrown Shrine": {
+        "tier": 6,
+        "adjacent": []
+    },
+    "Plateau": {
+        "tier": 6,
+        "adjacent": []
+    },
+    "Spider Forest": {
+        "tier": 6,
+        "adjacent": []
+    },
+    "Arachnid Nest": {
+        "tier": 7,
+        "adjacent": []
+    },
+    "Colonnade": {
+        "tier": 7,
+        "adjacent": []
+    },
+    "Fungal Hollow": {
+        "tier": 7,
+        "adjacent": []
+    },
+    "Lair": {
+        "tier": 7,
+        "adjacent": []
+    },
+    "Mausoleum": {
+        "tier": 7,
+        "adjacent": []
+    },
+    "Necropolis": {
+        "tier": 7,
+        "adjacent": []
+    },
+    "Summit": {
+        "tier": 7,
+        "adjacent": []
+    },
+    "Ancient City": {
+        "tier": 8,
+        "adjacent": []
+    },
+    "Barrows": {
+        "tier": 8,
+        "adjacent": []
+    },
+    "Bog": {
+        "tier": 8,
+        "adjacent": []
+    },
+    "Canyon": {
+        "tier": 8,
+        "adjacent": []
+    },
+    "Ghetto": {
+        "tier": 8,
+        "adjacent": []
+    },
+    "Maze": {
+        "tier": 8,
+        "adjacent": []
+    },
+    "Wasteland": {
+        "tier": 8,
+        "adjacent": []
+    },
+    "Desert": {
+        "tier": 9,
+        "adjacent": []
+    },
+    "Dig": {
+        "tier": 9,
+        "adjacent": []
+    },
+    "Foundry": {
+        "tier": 9,
+        "adjacent": []
+    },
+    "Pier": {
+        "tier": 9,
+        "adjacent": []
+    },
+    "Residence": {
+        "tier": 9,
+        "adjacent": []
+    },
+    "Villa": {
+        "tier": 9,
+        "adjacent": []
+    },
+    "Cold River": {
+        "tier": 10,
+        "adjacent": []
+    },
+    "Gardens": {
+        "tier": 10,
+        "adjacent": []
+    },
+    "Leyline": {
+        "tier": 10,
+        "adjacent": []
+    },
+    "Racecourse": {
+        "tier": 10,
+        "adjacent": []
+    },
+    "Stagnation": {
+        "tier": 10,
+        "adjacent": []
+    },
+    "Underground River": {
+        "tier": 10,
+        "adjacent": []
+    }
+}

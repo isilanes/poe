@@ -20,7 +20,7 @@ COLORS = {
 
 class Map:
 
-    def __init__(self, name: str, tier: int, have: bool) -> None:
+    def __init__(self, name: str, tier: int, have: bool = False) -> None:
         self.name = name
         self.tier = tier
         self.have = have
@@ -72,22 +72,35 @@ def read_input(fn: str) -> Union[dict, list]:
 def main():
     opts = parse_args()
     maps = read_input(opts.league)
-    atlas = read_input(opts.atlas)
 
+    # Read map configuration from Atlas JSON:
+    atlas = read_input(opts.atlas)
     maps_by_name = {}
-    maps_by_tier = {i: [] for i in range(1, 17)}
+    maps_by_tier = {}
+    for map_name, map_info in atlas.items():
+        tier = map_info.get("tier")
+        adjacent_map_names = map_info.get("adjacent")
+        this_map = Map(map_name, tier)
+
+        if tier not in maps_by_tier:
+            maps_by_tier[tier] = []
+        maps_by_tier[tier].append(this_map)
+        maps_by_name[map_name] = this_map
+
+        for other_name in adjacent_map_names:
+            if other_name not in maps_by_name:
+                continue
+            other_map = maps_by_name[other_name]
+            this_map.adjacent.add(other_map)
+            other_map.adjacent.add(this_map)  # should be unnecessary
+
+    # Read maps that I have:
     for which, have in (("have_maps", True), ("dont_have_maps", False)):
         tiers = maps.get(which)
         for tier, map_list in tiers.items():
             for map_name in map_list:
-                atlas_map = Map(map_name, int(tier), have)
-                maps_by_name[atlas_map.name] = atlas_map
-                maps_by_tier[atlas_map.tier].append(atlas_map)
-
-    for adjacent in atlas:
-        map_a, map_b = [maps_by_name[x] for x in adjacent]
-        map_a.adjacent.add(map_b)
-        map_b.adjacent.add(map_a)
+                this_map = maps_by_name[map_name]
+                this_map.have = have
 
     for tier in sorted(maps_by_tier.keys()):
         line = f"Tier {tier:2d}: "
