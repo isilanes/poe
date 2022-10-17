@@ -1,31 +1,27 @@
 {
     "Frozen Cabins": {
         "tier": 1,
-        "adjacent": [
-            "Dark Forest",
-            "Moon Temple",
-            "Colosseum"
-        ]
+        "adjacent": ["Dark Forest", "Moon Temple", "Colosseum"]
     },
     "Overgrown Ruin": {
         "tier": 1,
-        "adjacent": []
+        "adjacent": ["Carcass", "Excavation", "Bramble Valley"]
     },
     "Strand": {
         "tier": 1,
-        "adjacent": []
+        "adjacent": ["Thicket", "Whakawairua Tuahu", "Carcass"]
     },
     "Terrace": {
         "tier": 1,
-        "adjacent": []
+        "adjacent": ["Colosseum", "Crimson Temple"]
     },
     "Whakawairua Tuahu": {
         "tier": 1,
-        "adjacent": []
+        "adjacent": ["Strand"]
     },
     "Bramble Valley": {
         "tier": 2,
-        "adjacent": []
+        "adjacent": ["Overgrown Ruin", "Caldera", "Bone Crypt"]
     },
     "Carcass": {
         "tier": 2,
@@ -33,11 +29,11 @@
     },
     "Colosseum": {
         "tier": 2,
-        "adjacent": []
+        "adjacent": ["Frozen Cabins", "Cells", "Terrace"]
     },
     "Crimson Temple": {
         "tier": 2,
-        "adjacent": []
+        "adjacent": ["Terrace", "Cells", "Park"]
     },
     "Dark Forest": {
         "tier": 2,
@@ -45,15 +41,15 @@
     },
     "Excavation": {
         "tier": 2,
-        "adjacent": []
+        "adjacent": ["Overgrown Ruin", "Museum", "Caldera"]
     },
     "Moon Temple": {
         "tier": 2,
-        "adjacent": []
+        "adjacent": ["Frozen Cabins", "Defiled Cathedral", "The Twilight Temple", "Cells"]
     },
     "Thicket": {
         "tier": 2,
-        "adjacent": []
+        "adjacent": ["Strand", "Park", "Waterways"]
     },
     "The Twilight Temple": {
         "tier": 2,
@@ -61,19 +57,19 @@
     },
     "Bone Crypt": {
         "tier": 3,
-        "adjacent": []
+        "adjacent": ["Bramble Valley", "Primordial Pool", "Dungeon", "Olmec's Sanctum"]
     },
     "Caldera": {
         "tier": 3,
-        "adjacent": []
+        "adjacent": ["Bramble Valley", "Excavation", "Shore", "Primordial Pool"]
     },
     "Cells": {
         "tier": 3,
-        "adjacent": []
+        "adjacent": ["Moon Temple", "Atoll", "Chateau", "Crimson Temple", "Colosseum"]
     },
     "Defiled Cathedral": {
         "tier": 3,
-        "adjacent": []
+        "adjacent": ["Dark Forest", "Laboratory", "Atoll", "Moon Temple"]
     },
     "Olmec's Sanctum": {
         "tier": 3,
@@ -85,15 +81,15 @@
     },
     "Museum": {
         "tier": 3,
-        "adjacent": []
+        "adjacent": ["Excavation", "Carcass", "Shore", "The Putrid Cloister"]
     },
     "Park": {
         "tier": 3,
-        "adjacent": []
+        "adjacent": ["Chateau", "Phantasmagoria", "Thicket", "Crimson Temple"]
     },
     "Waterways": {
         "tier": 3,
-        "adjacent": []
+        "adjacent": ["Thicket", "Phantasmagoria", "Shore", "Carcass"]
     },
     "The Putrid Cloister": {
         "tier": 3,
@@ -101,7 +97,7 @@
     },
     "Atoll": {
         "tier": 4,
-        "adjacent": []
+        "adjacent": ["Defiled Cathedral", "Crimson Township", "Mud Geyser", "Maelström of Chaos", "Cells"]
     },
     "Chateau": {
         "tier": 4,
