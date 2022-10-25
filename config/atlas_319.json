@@ -76,7 +76,7 @@
         "adjacent": ["Bone Crypt"]
     },
     "Factory": {
-        "tier": 1,
+        "tier": 3,
         "adjacent": ["Dark Forest", "Vaal Pyramid", "Laboratory"]
     },
     "Museum": {
@@ -105,27 +105,27 @@
     },
     "Dungeon": {
         "tier": 4,
-        "adjacent": []
+        "adjacent": ["Bone Crypt", "Crater", "Temple"]
     },
     "Laboratory": {
         "tier": 4,
-        "adjacent": []
+        "adjacent": ["Factory", "Shrine", "Crimson Township", "Defiled Cathedral"]
     },
     "Phantasmagoria": {
         "tier": 4,
-        "adjacent": []
+        "adjacent": ["Park", "Coral Ruins", "Wharf", "Waterways"]
     },
     "Primordial Pool": {
         "tier": 4,
-        "adjacent": []
+        "adjacent": ["Caldera", "Acid Caverns", "Crater", "Bone Crypt"]
     },
     "Shore": {
         "tier": 4,
-        "adjacent": []
+        "adjacent": ["Museum", "Waterways", "Wharf", "Acid Caverns", "Mao Kun", "Caldera"]
     },
     "Vaal Pyramid": {
         "tier": 4,
-        "adjacent": []
+        "adjacent": ["Factory", "Vaults of Atziri", "Shrine"]
     },
     "Maelström of Chaos": {
         "tier": 4,
@@ -141,7 +141,7 @@
     },
     "Acid Caverns": {
         "tier": 5,
-        "adjacent": []
+        "adjacent": ["Shore", "Arachnid Tomb", "Jungle Valley", "Primordial Pool"]
     },
     "Coral Ruins": {
         "tier": 5,
@@ -149,11 +149,11 @@
     },
     "Crater": {
         "tier": 5,
-        "adjacent": []
+        "adjacent": ["Primordial Pool", "Jungle Valley", "Dungeon"]
     },
     "Crimson Township": {
         "tier": 5,
-        "adjacent": []
+        "adjacent": ["Laboratory", "Plateau", "Spider Forest", "Atoll"]
     },
     "Mud Geyser": {
         "tier": 5,
@@ -165,11 +165,11 @@
     },
     "Temple": {
         "tier": 5,
-        "adjacent": []
+        "adjacent": ["Dungeon", "Poorjoy's Asylum", "Lava Chamber"]
     },
     "Wharf": {
         "tier": 5,
-        "adjacent": []
+        "adjacent": ["Phantasmagoria", "Arachnid Tomb", "Shore"]
     },
     "Poorjoy's Asylum": {
         "tier": 5,
@@ -201,7 +201,7 @@
     },
     "Spider Forest": {
         "tier": 6,
-        "adjacent": []
+        "adjacent": ["Crimson Township","Summit", "Colonnade", "Mud Geyser"]
     },
     "Arachnid Nest": {
         "tier": 7,
@@ -221,7 +221,7 @@
     },
     "Mausoleum": {
         "tier": 7,
-        "adjacent": []
+        "adjacent": ["Jungle Valley", "Maze", "Ancient City", "Lava Chamber"]
     },
     "Necropolis": {
         "tier": 7,
