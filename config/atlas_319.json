@@ -157,7 +157,7 @@
     },
     "Mud Geyser": {
         "tier": 5,
-        "adjacent": []
+        "adjacent": ["Atoll", "Spider Forest", "Dry Sea", "Chateau"]
     },
     "Shrine": {
         "tier": 5,
@@ -177,19 +177,19 @@
     },
     "Arachnid Tomb": {
         "tier": 6,
-        "adjacent": []
+        "adjacent": ["Arachnid Nest", "Fungal Hollow", "Acid Caverns", "Wharf", "Coral Ruins"]
     },
     "Dry Sea": {
         "tier": 6,
-        "adjacent": []
+        "adjacent": ["Mud Geyser", "Colonnade", "Coral Ruins"]
     },
     "Jungle Valley": {
         "tier": 6,
-        "adjacent": []
+        "adjacent": ["Acid Caverns", "Fungal Hollow", "Mausoleum", "Temple", "Crater"]
     },
     "Lava Chamber": {
         "tier": 6,
-        "adjacent": []
+        "adjacent": ["Temple", "Mausoleum", "Necropolis"]
     },
     "Overgrown Shrine": {
         "tier": 6,
@@ -205,7 +205,7 @@
     },
     "Arachnid Nest": {
         "tier": 7,
-        "adjacent": []
+        "adjacent": ["Arachnid Tomb", "Overgrown Shrine", "Barrows", "Wasteland"]
     },
     "Colonnade": {
         "tier": 7,
@@ -289,7 +289,7 @@
     },
     "Gardens": {
         "tier": 10,
-        "adjacent": []
+        "adjacent": ["Pier", "Arena", "Belfry", "Dig"]
     },
     "Leyline": {
         "tier": 10,
@@ -305,6 +305,42 @@
     },
     "Underground River": {
         "tier": 10,
+        "adjacent": ["Residence", "Castle Ruins", "Caer Blaidd", "Arena", "Pier"]
+    },
+    "Alleyways": {
+        "tier": 11,
+        "adjacent": []
+    },
+    "Arena": {
+        "tier": 11,
+        "adjacent": []
+    },
+    "Belfry": {
+        "tier": 11,
+        "adjacent": []
+    },
+    "Castle Ruins": {
+        "tier": 11,
+        "adjacent": []
+    },
+    "Peninsula": {
+        "tier": 11,
+        "adjacent": []
+    },
+    "Precinct": {
+        "tier": 11,
+        "adjacent": []
+    },
+    "Marshes": {
+        "tier": 12,
+        "adjacent": ["Castle Ruins", "Arsenal", "Sulphur Vents", "Arena"]
+    },
+    "Arsenal": {
+        "tier": 13,
+        "adjacent": []
+    },
+    "Sulphur Vents": {
+        "tier": 13,
         "adjacent": []
     }
 }
