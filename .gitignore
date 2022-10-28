@@ -1,5 +1,6 @@
 *.swp
 *.pyc
 .idea
+.python-version
 config/league.json
 config/standard.json

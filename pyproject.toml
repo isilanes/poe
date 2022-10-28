@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "poe"
+version = "0.1.0"
+description = "PoE stuff."
+authors = ["Iñaki Silanes <isilanes@gmail.com>"]
+license = "GPLv3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyinquirer = "^1.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
