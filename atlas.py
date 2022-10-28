@@ -17,6 +17,7 @@ COLORS = {
         "38;5;142",  # 6
     ),
     "highlight": "48;5;11",  # yellow background
+    "undiscovered": "31;48;5;15",  # red on white
 }
 
 
@@ -119,11 +120,10 @@ def main():
             if opts.select and opts.select.lower() in atlas_map.name.lower():
                 link_color += ";" + COLORS.get("highlight")
 
-            name = atlas_map.name
             if not atlas_map.have:
-                name = f"[{name}]"
+                link_color = COLORS.get("undiscovered")
 
-            string = f"\033[{link_color}m{name}\033[0m"
+            string = f"\033[{link_color}m{atlas_map.name}\033[0m"
 
             map_strings.append(string)
 
