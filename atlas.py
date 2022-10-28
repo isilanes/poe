@@ -80,10 +80,10 @@ def read_input(fn: str) -> Union[dict, list]:
         return json.load(f)
 
 
-def read_config(name: str) -> Union[dict, list]:
+def read_config(name: str) -> Tuple[str, Union[dict, list]]:
     fn = os.path.join(DIR, "config", f"{name}.json")
 
-    return read_input(fn)
+    return fn, read_input(fn)
 
 
 def build_atlas(atlas: dict) -> Tuple:
@@ -140,7 +140,7 @@ def print_maps(opts, maps_by_tier: dict) -> None:
         print(line)
 
 
-def add_map():
+def add_map(maps: dict, maps_path: str, atlas: dict, atlas_path: str) -> None:
     questions = [
         {
             "type": "input",
@@ -162,17 +162,65 @@ def add_map():
     ]
     answers = prompt(questions)
 
+    tier = answers.get("map_tier")
+    name = answers.get("map_name")
+    which = "dont_have_maps"
+    if answers.get("have"):
+        which = "have_maps"
+
+    mw = maps[which]
+
+    if tier not in mw:
+        mw[tier] = []
+
+    mwt = mw[tier]
+
+    if name not in mwt:
+        mwt.append(name)
+
+    with open(maps_path, "w") as f:
+        json.dump(maps, f, ensure_ascii=False, indent=4)
+
+    if name in atlas:
+        return
+
+    questions = [
+        {
+            "type": "input",
+            "name": "adjacent",
+            "message": "What other maps are adjacent to it?",
+        },
+    ]
+
+    adjacent_maps = []
+    go_on = True
+    while go_on:
+        answers = prompt(questions)
+        adjacent = answers.get("adjacent")
+        if not adjacent:
+            break
+
+        adjacent_maps.append(adjacent)
+
+    atlas[name] = {
+        "tier": int(tier),
+        "adjacent": adjacent_maps,
+    }
+
+    with open(atlas_path, "w") as f:
+        json.dump(atlas, f, ensure_ascii=False, indent=4)
+
 
 def main():
     opts = parse_args()
-    maps = read_config(opts.league)
-    atlas = read_config(f"atlas_{opts.atlas}")
+    maps_path, maps = read_config(opts.league)
+    atlas_path, atlas = read_config(f"atlas_{opts.atlas}")
 
     maps_by_name, maps_by_tier = build_atlas(atlas)
     read_maps_i_have(maps, maps_by_name)
 
     if opts.add:
-        add_map()
+        add_map(maps, maps_path, atlas, atlas_path)
     else:
         print_maps(opts, maps_by_tier)
 
