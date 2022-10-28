@@ -1,9 +1,11 @@
+import os
 import sys
 import json
 import argparse
 from typing import Optional, Union
 
 
+DIR = os.path.dirname(os.path.abspath(__file__))
 COLORS = {
     "links": (
         "38;5;242",  # gray
@@ -69,12 +71,18 @@ def read_input(fn: str) -> Union[dict, list]:
         return json.load(f)
 
 
+def read_config(name: str) -> Union[dict, list]:
+    fn = os.path.join(DIR, "config", f"{name}.json")
+
+    return read_input(fn)
+
+
 def main():
     opts = parse_args()
-    maps = read_input(opts.league)
+    maps = read_config(opts.league)
 
     # Read map configuration from Atlas JSON:
-    atlas = read_input(opts.atlas)
+    atlas = read_config(f"atlas_{opts.atlas}")
     maps_by_name = {}
     maps_by_tier = {}
     for map_name, map_info in atlas.items():
