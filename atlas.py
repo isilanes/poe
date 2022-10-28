@@ -2,8 +2,7 @@ import os
 import sys
 import json
 import argparse
-from typing import Optional, Union
-
+from typing import Optional, Union, Tuple, Dict
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 COLORS = {
@@ -78,12 +77,7 @@ def read_config(name: str) -> Union[dict, list]:
     return read_input(fn)
 
 
-def main():
-    opts = parse_args()
-    maps = read_config(opts.league)
-
-    # Read map configuration from Atlas JSON:
-    atlas = read_config(f"atlas_{opts.atlas}")
+def build_atlas(atlas: dict) -> Tuple:
     maps_by_name = {}
     maps_by_tier = {}
     for map_name, map_info in atlas.items():
@@ -103,7 +97,10 @@ def main():
             this_map.adjacent.add(other_map)
             other_map.adjacent.add(this_map)  # should be unnecessary
 
-    # Read maps that I have:
+    return maps_by_name, maps_by_tier
+
+
+def read_maps_i_have(maps: dict, maps_by_name: dict) -> None:
     for which, have in (("have_maps", True), ("dont_have_maps", False)):
         tiers = maps.get(which)
         for tier, map_list in tiers.items():
@@ -111,6 +108,8 @@ def main():
                 this_map = maps_by_name[map_name]
                 this_map.have = have
 
+
+def print_maps(opts, maps_by_tier: dict) -> None:
     for tier in sorted(maps_by_tier.keys()):
         line = f"Tier {tier:2d}: "
         map_strings = []
@@ -130,6 +129,16 @@ def main():
         line += " - ".join(map_strings)
 
         print(line)
+
+
+def main():
+    opts = parse_args()
+    maps = read_config(opts.league)
+    atlas = read_config(f"atlas_{opts.atlas}")
+
+    maps_by_name, maps_by_tier = build_atlas(atlas)
+    read_maps_i_have(maps, maps_by_name)
+    print_maps(opts, maps_by_tier)
 
 
 if __name__ == "__main__":
