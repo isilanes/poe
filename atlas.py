@@ -2,7 +2,10 @@ import os
 import sys
 import json
 import argparse
-from typing import Optional, Union, Tuple, Dict
+from typing import Optional, Union, Tuple
+
+from PyInquirer import prompt, print_json
+
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 COLORS = {
@@ -61,6 +64,12 @@ def parse_args(args: Optional[list] = None) -> argparse.Namespace:
         type=str,
         help="Highlight selected map. Default: do not.",
         default=None,
+    )
+    parser.add_argument(
+        "--add",
+        action="store_true",
+        help="Add a Map. Default: print existing Maps.",
+        default=False,
     )
 
     return parser.parse_args(args)
@@ -131,6 +140,29 @@ def print_maps(opts, maps_by_tier: dict) -> None:
         print(line)
 
 
+def add_map():
+    questions = [
+        {
+            "type": "input",
+            "name": "map_name",
+            "message": "Map name"
+        },
+        {
+            "type": "input",
+            "name": "map_tier",
+            "message": "Map tier",
+            "default": "1",
+            "validate": lambda i: isinstance(int(i), int),
+        },
+        {
+            "type": "confirm",
+            "name": "have",
+            "message": "Completed?",
+        }
+    ]
+    answers = prompt(questions)
+
+
 def main():
     opts = parse_args()
     maps = read_config(opts.league)
@@ -138,7 +170,11 @@ def main():
 
     maps_by_name, maps_by_tier = build_atlas(atlas)
     read_maps_i_have(maps, maps_by_name)
-    print_maps(opts, maps_by_tier)
+
+    if opts.add:
+        add_map()
+    else:
+        print_maps(opts, maps_by_tier)
 
 
 if __name__ == "__main__":
