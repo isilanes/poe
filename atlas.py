@@ -141,54 +141,73 @@ def print_maps(opts, maps_by_tier: dict) -> None:
 
 
 def add_map(maps: dict, maps_path: str, atlas: dict, atlas_path: str) -> None:
+    atlas_map = get_atlas_map()
+    add_map_to_map_list(atlas_map, maps, maps_path)
+    add_map_to_atlas(atlas_map, atlas, atlas_path)
+
+
+def add_map_to_map_list(atlas_map: Map, maps: dict, maps_path: str) -> None:
+    which = "dont_have_maps"
+    if atlas_map.have:
+        which = "have_maps"
+
+    mw = maps[which]
+
+    if atlas_map.tier not in mw:
+        mw[atlas_map.tier] = []
+
+    mwt = mw[atlas_map.tier]
+
+    if atlas_map.name not in mwt:
+        mwt.append(atlas_map.name)
+
+    with open(maps_path, "w") as f:
+        json.dump(maps, f, ensure_ascii=False, indent=4)
+
+
+def add_map_to_atlas(atlas_map: Map, atlas: dict, atlas_path: str) -> None:
+    atlas[atlas_map.name] = {
+        "tier": atlas_map.tier,
+        "adjacent": atlas_map.adjacent,
+    }
+
+    with open(atlas_path, "w") as f:
+        json.dump(atlas, f, ensure_ascii=False, indent=4)
+
+
+def get_atlas_map() -> Map:
     questions = [
         {
             "type": "input",
             "name": "map_name",
-            "message": "Map name"
+            "message": "Map name:"
         },
         {
             "type": "input",
             "name": "map_tier",
-            "message": "Map tier",
+            "message": "Map tier:",
             "default": "",
             "validate": lambda i: isinstance(int(i), int),
         },
         {
             "type": "confirm",
             "name": "have",
-            "message": "Completed?",
+            "message": "Completed?:",
         }
     ]
     answers = prompt(questions)
 
-    tier = answers.get("map_tier")
-    name = answers.get("map_name")
-    which = "dont_have_maps"
-    if answers.get("have"):
-        which = "have_maps"
-
-    mw = maps[which]
-
-    if tier not in mw:
-        mw[tier] = []
-
-    mwt = mw[tier]
-
-    if name not in mwt:
-        mwt.append(name)
-
-    with open(maps_path, "w") as f:
-        json.dump(maps, f, ensure_ascii=False, indent=4)
-
-    if name in atlas and atlas.get(name).get("adjacent"):
-        return
+    atlas_map = Map(
+        name=answers.get("map_name"),
+        tier=int(answers.get("map_tier")),
+        have=bool(answers.get("have")),
+    )
 
     questions = [
         {
             "type": "input",
             "name": "adjacent",
-            "message": "What other maps are adjacent to it?",
+            "message": "Introduce map adjacent to it:",
         },
     ]
 
@@ -202,13 +221,10 @@ def add_map(maps: dict, maps_path: str, atlas: dict, atlas_path: str) -> None:
 
         adjacent_maps.append(adjacent)
 
-    atlas[name] = {
-        "tier": int(tier),
-        "adjacent": adjacent_maps,
-    }
+    if adjacent_maps:
+        atlas_map.adjacent = tuple(sorted(set(adjacent_maps)))
 
-    with open(atlas_path, "w") as f:
-        json.dump(atlas, f, ensure_ascii=False, indent=4)
+    return atlas_map
 
 
 def main():
