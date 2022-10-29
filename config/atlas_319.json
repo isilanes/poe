@@ -549,10 +549,10 @@
     "Marshes": {
         "tier": 12,
         "adjacent": [
-            "Castle Ruins",
+            "Arena",
             "Arsenal",
-            "Sulphur Vents",
-            "Arena"
+            "Castle Ruins",
+            "Sulphur Vents"
         ]
     },
     "Arsenal": {
@@ -562,5 +562,13 @@
     "Sulphur Vents": {
         "tier": 13,
         "adjacent": []
+    },
+    "Port": {
+        "tier": 12,
+        "adjacent": [
+            "Arena",
+            "Belfry",
+            "Sulphur Vents"
+        ]
     }
 }

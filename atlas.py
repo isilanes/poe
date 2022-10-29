@@ -153,10 +153,12 @@ def add_map_to_map_list(atlas_map: Map, maps: dict, maps_path: str) -> None:
 
     mw = maps[which]
 
-    if atlas_map.tier not in mw:
-        mw[atlas_map.tier] = []
+    t = str(atlas_map.tier)
 
-    mwt = mw[atlas_map.tier]
+    if t not in mw:
+        mw[t] = []
+
+    mwt = mw[t]
 
     if atlas_map.name not in mwt:
         mwt.append(atlas_map.name)
@@ -168,7 +170,7 @@ def add_map_to_map_list(atlas_map: Map, maps: dict, maps_path: str) -> None:
 def add_map_to_atlas(atlas_map: Map, atlas: dict, atlas_path: str) -> None:
     atlas[atlas_map.name] = {
         "tier": atlas_map.tier,
-        "adjacent": atlas_map.adjacent,
+        "adjacent": list(atlas_map.adjacent),
     }
 
     with open(atlas_path, "w") as f:
