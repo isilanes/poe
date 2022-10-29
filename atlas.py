@@ -151,7 +151,7 @@ def add_map(maps: dict, maps_path: str, atlas: dict, atlas_path: str) -> None:
             "type": "input",
             "name": "map_tier",
             "message": "Map tier",
-            "default": "1",
+            "default": "",
             "validate": lambda i: isinstance(int(i), int),
         },
         {
@@ -181,7 +181,7 @@ def add_map(maps: dict, maps_path: str, atlas: dict, atlas_path: str) -> None:
     with open(maps_path, "w") as f:
         json.dump(maps, f, ensure_ascii=False, indent=4)
 
-    if name in atlas:
+    if name in atlas and atlas.get(name).get("adjacent"):
         return
 
     questions = [
