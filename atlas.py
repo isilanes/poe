@@ -20,6 +20,7 @@ COLORS = {
     ),
     "highlight": "48;5;11",  # yellow background
     "undiscovered": "31;48;5;15",  # red on white
+    "in_questions": "38;5;178",  # gold
 }
 
 
@@ -141,7 +142,7 @@ def print_maps(opts, maps_by_tier: dict) -> None:
 
 
 def add_map(maps: dict, maps_path: str, atlas: dict, atlas_path: str) -> None:
-    atlas_map = get_atlas_map()
+    atlas_map = get_atlas_map(atlas)
     add_map_to_map_list(atlas_map, maps, maps_path)
     add_map_to_atlas(atlas_map, atlas, atlas_path)
 
@@ -151,17 +152,20 @@ def add_map_to_map_list(atlas_map: Map, maps: dict, maps_path: str) -> None:
     if atlas_map.have:
         which = "have_maps"
 
-    mw = maps[which]
+    for which, keep in (("have_maps", atlas_map.have), ("dont_have_maps", not atlas_map.have)):
+        mw = maps[which]
+        t = str(atlas_map.tier)
 
-    t = str(atlas_map.tier)
+        if t not in mw:
+            mw[t] = []
 
-    if t not in mw:
-        mw[t] = []
+        mwt = mw[t]
 
-    mwt = mw[t]
+        if keep and atlas_map.name not in mwt:
+            mwt.append(atlas_map.name)
 
-    if atlas_map.name not in mwt:
-        mwt.append(atlas_map.name)
+        if not keep and atlas_map.name in mwt:
+            mwt.remove(atlas_map.name)
 
     with open(maps_path, "w") as f:
         json.dump(maps, f, ensure_ascii=False, indent=4)
@@ -177,7 +181,7 @@ def add_map_to_atlas(atlas_map: Map, atlas: dict, atlas_path: str) -> None:
         json.dump(atlas, f, ensure_ascii=False, indent=4)
 
 
-def get_atlas_map() -> Map:
+def get_atlas_map(atlas: dict) -> Map:
     questions = [
         {
             "type": "input",
@@ -205,6 +209,27 @@ def get_atlas_map() -> Map:
         have=bool(answers.get("have")),
     )
 
+    add_more = True
+    already_adjacent = atlas.get(atlas_map.name, {}).get("adjacent", [])
+    if already_adjacent:
+        map_list = [f"[{n}]" for n in already_adjacent]
+        msg = f"{atlas_map.name} already has these adjacent maps: {', '.join(map_list)}\n"
+        msg += "Do you want to add another one?:"
+        questions = [
+            {
+                "type": "confirm",
+                "name": "add_more",
+                "default": False,
+                "message": msg,
+            },
+        ]
+        answers = prompt(questions)
+        add_more = answers.get("add_more")
+
+    if not add_more:
+        atlas_map.adjacent = list(sorted(set(already_adjacent)))
+        return atlas_map
+
     questions = [
         {
             "type": "input",
@@ -213,7 +238,7 @@ def get_atlas_map() -> Map:
         },
     ]
 
-    adjacent_maps = []
+    adjacent_maps = already_adjacent
     go_on = True
     while go_on:
         answers = prompt(questions)

@@ -51,8 +51,8 @@
     "Colosseum": {
         "tier": 2,
         "adjacent": [
-            "Frozen Cabins",
             "Cells",
+            "Frozen Cabins",
             "Terrace"
         ]
     },
@@ -67,17 +67,17 @@
     "Dark Forest": {
         "tier": 2,
         "adjacent": [
-            "Frozen Cabins",
+            "Defiled Cathedral",
             "Factory",
-            "Defiled Cathedral"
+            "Frozen Cabins"
         ]
     },
     "Excavation": {
         "tier": 2,
         "adjacent": [
-            "Overgrown Ruin",
+            "Caldera",
             "Museum",
-            "Caldera"
+            "Overgrown Ruin"
         ]
     },
     "Moon Temple": {
@@ -113,22 +113,22 @@
         ]
     },
     "Caldera": {
-        "tier": 3,
+        "tier": 2,
         "adjacent": [
             "Bramble Valley",
             "Excavation",
-            "Shore",
-            "Primordial Pool"
+            "Primordial Pool",
+            "Shore"
         ]
     },
     "Cells": {
         "tier": 3,
         "adjacent": [
-            "Moon Temple",
             "Atoll",
             "Chateau",
+            "Colosseum",
             "Crimson Temple",
-            "Colosseum"
+            "Moon Temple"
         ]
     },
     "Defiled Cathedral": {
@@ -524,7 +524,12 @@
     },
     "Alleyways": {
         "tier": 11,
-        "adjacent": []
+        "adjacent": [
+            "Cemetery",
+            "Cold River",
+            "Leyline",
+            "Silo"
+        ]
     },
     "Arena": {
         "tier": 11,
@@ -569,6 +574,14 @@
             "Arena",
             "Belfry",
             "Sulphur Vents"
+        ]
+    },
+    "Cemetery": {
+        "tier": 12,
+        "adjacent": [
+            "Alleyways",
+            "Hallowed Ground",
+            "Pen"
         ]
     }
 }
