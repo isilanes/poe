@@ -18,9 +18,9 @@
     "Strand": {
         "tier": 1,
         "adjacent": [
+            "Carcass",
             "Thicket",
-            "Whakawairua Tuahu",
-            "Carcass"
+            "Whakawairua Tuahu"
         ]
     },
     "Terrace": {
@@ -46,7 +46,12 @@
     },
     "Carcass": {
         "tier": 2,
-        "adjacent": []
+        "adjacent": [
+            "Museum",
+            "Overgrown Ruin",
+            "Strand",
+            "Waterways"
+        ]
     },
     "Colosseum": {
         "tier": 2,
@@ -59,9 +64,9 @@
     "Crimson Temple": {
         "tier": 2,
         "adjacent": [
-            "Terrace",
             "Cells",
-            "Park"
+            "Park",
+            "Terrace"
         ]
     },
     "Dark Forest": {
@@ -107,9 +112,9 @@
         "tier": 3,
         "adjacent": [
             "Bramble Valley",
-            "Primordial Pool",
             "Dungeon",
-            "Olmec's Sanctum"
+            "Olmec's Sanctum",
+            "Primordial Pool"
         ]
     },
     "Caldera": {
@@ -157,8 +162,8 @@
     "Museum": {
         "tier": 3,
         "adjacent": [
-            "Excavation",
             "Carcass",
+            "Excavation",
             "Shore",
             "The Putrid Cloister"
         ]
@@ -167,9 +172,9 @@
         "tier": 3,
         "adjacent": [
             "Chateau",
+            "Crimson Temple",
             "Phantasmagoria",
-            "Thicket",
-            "Crimson Temple"
+            "Thicket"
         ]
     },
     "Waterways": {
@@ -190,11 +195,11 @@
     "Atoll": {
         "tier": 4,
         "adjacent": [
-            "Defiled Cathedral",
+            "Cells",
             "Crimson Township",
-            "Mud Geyser",
+            "Defiled Cathedral",
             "Maelström of Chaos",
-            "Cells"
+            "Mud Geyser"
         ]
     },
     "Chateau": {
@@ -212,19 +217,19 @@
     "Laboratory": {
         "tier": 4,
         "adjacent": [
-            "Factory",
-            "Shrine",
             "Crimson Township",
-            "Defiled Cathedral"
+            "Defiled Cathedral",
+            "Factory",
+            "Shrine"
         ]
     },
     "Phantasmagoria": {
         "tier": 4,
         "adjacent": [
-            "Park",
             "Coral Ruins",
-            "Wharf",
-            "Waterways"
+            "Park",
+            "Waterways",
+            "Wharf"
         ]
     },
     "Primordial Pool": {
@@ -251,8 +256,8 @@
         "tier": 4,
         "adjacent": [
             "Factory",
-            "Vaults of Atziri",
-            "Shrine"
+            "Shrine",
+            "Vaults of Atziri"
         ]
     },
     "Maelström of Chaos": {
@@ -276,31 +281,37 @@
     "Acid Caverns": {
         "tier": 5,
         "adjacent": [
-            "Shore",
             "Arachnid Tomb",
             "Jungle Valley",
-            "Primordial Pool"
+            "Primordial Pool",
+            "Shore"
         ]
     },
     "Coral Ruins": {
         "tier": 5,
-        "adjacent": []
+        "adjacent": [
+            "Arachnid Tomb",
+            "Chateau",
+            "Dry Sea",
+            "Overgrown Shrine",
+            "Phantasmagoria"
+        ]
     },
     "Crater": {
         "tier": 5,
         "adjacent": [
-            "Primordial Pool",
+            "Dungeon",
             "Jungle Valley",
-            "Dungeon"
+            "Primordial Pool"
         ]
     },
     "Crimson Township": {
         "tier": 5,
         "adjacent": [
+            "Atoll",
             "Laboratory",
             "Plateau",
-            "Spider Forest",
-            "Atoll"
+            "Spider Forest"
         ]
     },
     "Mud Geyser": {
@@ -314,14 +325,18 @@
     },
     "Shrine": {
         "tier": 5,
-        "adjacent": []
+        "adjacent": [
+            "Laboratory",
+            "Plateau",
+            "Vaal Pyramid"
+        ]
     },
     "Temple": {
         "tier": 5,
         "adjacent": [
             "Dungeon",
-            "Poorjoy's Asylum",
-            "Lava Chamber"
+            "Lava Chamber",
+            "Poorjoy's Asylum"
         ]
     },
     "Wharf": {
@@ -341,11 +356,11 @@
     "Arachnid Tomb": {
         "tier": 6,
         "adjacent": [
-            "Arachnid Nest",
-            "Fungal Hollow",
             "Acid Caverns",
-            "Wharf",
-            "Coral Ruins"
+            "Arachnid Nest",
+            "Coral Ruins",
+            "Fungal Hollow",
+            "Wharf"
         ]
     },
     "Dry Sea": {
@@ -369,40 +384,56 @@
     "Lava Chamber": {
         "tier": 6,
         "adjacent": [
-            "Temple",
             "Mausoleum",
-            "Necropolis"
+            "Necropolis",
+            "Temple"
         ]
     },
     "Overgrown Shrine": {
         "tier": 6,
-        "adjacent": []
+        "adjacent": [
+            "Acton's Nightmare",
+            "Arachnid Nest",
+            "Colonnade",
+            "Coral Ruins",
+            "Lair"
+        ]
     },
     "Plateau": {
         "tier": 6,
-        "adjacent": []
+        "adjacent": [
+            "Crimson Township",
+            "Shrine",
+            "Summit"
+        ]
     },
     "Spider Forest": {
         "tier": 6,
         "adjacent": [
-            "Crimson Township",
-            "Summit",
             "Colonnade",
-            "Mud Geyser"
+            "Crimson Township",
+            "Mud Geyser",
+            "Summit"
         ]
     },
     "Arachnid Nest": {
         "tier": 7,
         "adjacent": [
             "Arachnid Tomb",
-            "Overgrown Shrine",
             "Barrows",
+            "Overgrown Shrine",
             "Wasteland"
         ]
     },
     "Colonnade": {
         "tier": 7,
-        "adjacent": []
+        "adjacent": [
+            "Bog",
+            "Canyon",
+            "Dry Sea",
+            "Overgrown Shrine",
+            "Spider Forest"
+        ]
     },
     "Fungal Hollow": {
         "tier": 7,
@@ -415,10 +446,10 @@
     "Mausoleum": {
         "tier": 7,
         "adjacent": [
-            "Jungle Valley",
-            "Maze",
             "Ancient City",
-            "Lava Chamber"
+            "Jungle Valley",
+            "Lava Chamber",
+            "Maze"
         ]
     },
     "Necropolis": {
@@ -435,11 +466,21 @@
     },
     "Barrows": {
         "tier": 8,
-        "adjacent": []
+        "adjacent": [
+            "Arachnid Nest",
+            "Dig",
+            "Lair",
+            "Pier"
+        ]
     },
     "Bog": {
         "tier": 8,
-        "adjacent": []
+        "adjacent": [
+            "Colonnade",
+            "Lair",
+            "Pier",
+            "Residence"
+        ]
     },
     "Canyon": {
         "tier": 8,
@@ -451,11 +492,20 @@
     },
     "Maze": {
         "tier": 8,
-        "adjacent": []
+        "adjacent": [
+            "Desert",
+            "Fungal Hollow",
+            "Mausoleum"
+        ]
     },
     "Wasteland": {
         "tier": 8,
-        "adjacent": []
+        "adjacent": [
+            "Arachnid Nest",
+            "Desert",
+            "Dig",
+            "Fungal Hollow"
+        ]
     },
     "Desert": {
         "tier": 9,
@@ -469,19 +519,39 @@
     },
     "Dig": {
         "tier": 9,
-        "adjacent": []
+        "adjacent": [
+            "Barrows",
+            "Gardens",
+            "Leyline",
+            "Racecourse",
+            "Wasteland"
+        ]
     },
     "Foundry": {
         "tier": 9,
-        "adjacent": []
+        "adjacent": [
+            "Canyon",
+            "Ghetto",
+            "Stagnation"
+        ]
     },
     "Pier": {
         "tier": 9,
-        "adjacent": []
+        "adjacent": [
+            "Barrows",
+            "Bog",
+            "Gardens",
+            "Underground River"
+        ]
     },
     "Residence": {
         "tier": 9,
-        "adjacent": []
+        "adjacent": [
+            "Bog",
+            "Canyon",
+            "Stagnation",
+            "Underground River"
+        ]
     },
     "Villa": {
         "tier": 9,
@@ -489,7 +559,11 @@
     },
     "Cold River": {
         "tier": 10,
-        "adjacent": []
+        "adjacent": [
+            "Alleyways",
+            "Desert",
+            "Villa"
+        ]
     },
     "Gardens": {
         "tier": 10,
@@ -506,20 +580,29 @@
     },
     "Racecourse": {
         "tier": 10,
-        "adjacent": []
+        "adjacent": [
+            "Belfry",
+            "Dig",
+            "Precinct"
+        ]
     },
     "Stagnation": {
         "tier": 10,
-        "adjacent": []
+        "adjacent": [
+            "Castle Ruins",
+            "Foundry",
+            "Peninsula",
+            "Residence"
+        ]
     },
     "Underground River": {
         "tier": 10,
         "adjacent": [
-            "Residence",
-            "Castle Ruins",
-            "Caer Blaidd",
             "Arena",
-            "Pier"
+            "Caer Blaidd",
+            "Castle Ruins",
+            "Pier",
+            "Residence"
         ]
     },
     "Alleyways": {
@@ -541,7 +624,12 @@
     },
     "Castle Ruins": {
         "tier": 11,
-        "adjacent": []
+        "adjacent": [
+            "Cursed Crypt",
+            "Marshes",
+            "Stagnation",
+            "Underground River"
+        ]
     },
     "Peninsula": {
         "tier": 11,
@@ -566,7 +654,12 @@
     },
     "Sulphur Vents": {
         "tier": 13,
-        "adjacent": []
+        "adjacent": [
+            "Marshes",
+            "Mesa",
+            "Port",
+            "Underground Sea"
+        ]
     },
     "Port": {
         "tier": 12,
@@ -582,6 +675,18 @@
             "Alleyways",
             "Hallowed Ground",
             "Pen"
+        ]
+    },
+    "Death and Taxes": {
+        "tier": 7,
+        "adjacent": [
+            "Necropolis"
+        ]
+    },
+    "Acton's Nightmare": {
+        "tier": 6,
+        "adjacent": [
+            "Overgrown Shrine"
         ]
     }
 }

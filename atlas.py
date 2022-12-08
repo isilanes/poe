@@ -4,7 +4,7 @@ import json
 import argparse
 from typing import Optional, Union, Tuple
 
-from PyInquirer import prompt, print_json
+from PyInquirer import prompt
 
 
 DIR = os.path.dirname(os.path.abspath(__file__))

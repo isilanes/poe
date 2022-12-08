@@ -1,0 +1,147 @@
+{
+    "have_maps": {
+        "1": [
+            "Frozen Cabins",
+            "Overgrown Ruin",
+            "Strand",
+            "Terrace"
+        ],
+        "2": [
+            "Bramble Valley",
+            "Colosseum",
+            "Crimson Temple",
+            "Dark Forest",
+            "Excavation",
+            "Moon Temple",
+            "Thicket",
+            "Carcass"
+        ],
+        "3": [
+            "Caldera",
+            "Cells",
+            "Defiled Cathedral",
+            "Factory",
+            "Museum",
+            "Park",
+            "Waterways",
+            "Bone Crypt"
+        ],
+        "4": [
+            "Atoll",
+            "Dungeon",
+            "Laboratory",
+            "Phantasmagoria",
+            "Primordial Pool",
+            "Shore",
+            "Vaal Pyramid",
+            "Maelström of Chaos"
+        ],
+        "5": [
+            "Acid Caverns",
+            "Crater",
+            "Crimson Township",
+            "Mud Geyser",
+            "Temple",
+            "Wharf",
+            "Coral Ruins",
+            "Poorjoy's Asylum",
+            "Shrine"
+        ],
+        "6": [
+            "Arachnid Tomb",
+            "Dry Sea",
+            "Jungle Valley",
+            "Lava Chamber",
+            "Spider Forest",
+            "Overgrown Shrine"
+        ],
+        "7": [
+            "Arachnid Nest",
+            "Fungal Hollow",
+            "Mausoleum",
+            "Necropolis",
+            "Colonnade",
+            "Death and Taxes"
+        ],
+        "8": [
+            "Ancient City",
+            "Bog",
+            "Barrows",
+            "Maze",
+            "Wasteland"
+        ],
+        "9": [
+            "Desert",
+            "Residence",
+            "Foundry",
+            "Pier",
+            "Dig"
+        ],
+        "10": [
+            "Gardens",
+            "Underground River",
+            "Cold River",
+            "Racecourse"
+        ],
+        "11": [
+            "Alleyways"
+        ],
+        "12": [
+            "Cemetery",
+            "Marshes",
+            "Port"
+        ],
+        "13": [
+            "Sulphur Vents"
+        ]
+    },
+    "dont_have_maps": {
+        "1": [
+            "Whakawairua Tuahu"
+        ],
+        "2": [
+            "The Twilight Temple"
+        ],
+        "3": [
+            "Olmec's Sanctum",
+            "The Putrid Cloister"
+        ],
+        "4": [
+            "Chateau",
+            "Vaults of Atziri",
+            "Mao Kun"
+        ],
+        "5": [],
+        "6": [
+            "Plateau"
+        ],
+        "7": [
+            "Lair",
+            "Summit"
+        ],
+        "8": [
+            "Canyon",
+            "Ghetto"
+        ],
+        "9": [
+            "Desert",
+            "Villa"
+        ],
+        "10": [
+            "Leyline",
+            "Stagnation"
+        ],
+        "11": [
+            "Alleyways",
+            "Arena",
+            "Belfry",
+            "Castle Ruins",
+            "Peninsula",
+            "Precinct"
+        ],
+        "12": [],
+        "13": [
+            "Arsenal"
+        ]
+    }
+}
